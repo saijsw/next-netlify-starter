@@ -2,7 +2,20 @@ import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { Web3Button } from "@thirdweb-dev/react";
 
+export default function Component() {
+  return (
+    <Web3Button
+      contractAddress="0xC3F4dF7076Dc21de4Ef5F82bC7cA29a418a88A52"
+      action={(contract) => {
+        contract.call("approve", [spender, amount])
+      }}
+    >
+      approve
+    </Web3Button>
+  )
+}
 // If used on the FRONTEND pass your 'clientId'
 const sdk = new ThirdwebSDK("mumbai", {
   clientId: "ab651fdd7eb84a79ee19e4631b5ad25a",
